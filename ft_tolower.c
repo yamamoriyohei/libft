@@ -6,13 +6,13 @@
 /*   By: yyamamor <yyamamor@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/02 17:21:45 by yyamamor          #+#    #+#             */
-/*   Updated: 2026/05/02 17:22:45 by yyamamor         ###   ########.fr       */
+/*   Updated: 2026/05/06 13:24:41 by yyamamor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_tolower(int c)
+int	ft_tolower(int c)
 {
-    if(c >= 'A' && c <= 'Z')
-        return (c + 32);
-    return (c);
+	if (c >= 'A' && c <= 'Z')
+		return (c + 32);
+	return (c);
 }

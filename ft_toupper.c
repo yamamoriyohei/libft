@@ -6,13 +6,13 @@
 /*   By: yyamamor <yyamamor@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/02 17:22:50 by yyamamor          #+#    #+#             */
-/*   Updated: 2026/05/02 17:22:58 by yyamamor         ###   ########.fr       */
+/*   Updated: 2026/05/06 13:24:40 by yyamamor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_toupper(int c)
+int	ft_toupper(int c)
 {
-    if (c >= 'a' && c <= 'z')
-        return (c - 32);
-    return (c);
+	if (c >= 'a' && c <= 'z')
+		return (c - 32);
+	return (c);
 }

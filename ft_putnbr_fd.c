@@ -6,12 +6,13 @@
 /*   By: yyamamor <yyamamor@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/05 13:52:59 by yyamamor          #+#    #+#             */
-/*   Updated: 2026/05/05 13:57:28 by yyamamor         ###   ########.fr       */
+/*   Updated: 2026/05/06 13:15:05 by yyamamor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <unistd.h>
+#include <limits.h>
 
 void	ft_putnbr_fd(int n, int fd)
 {

@@ -6,13 +6,13 @@
 /*   By: yyamamor <yyamamor@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/02 15:15:31 by yyamamor          #+#    #+#             */
-/*   Updated: 2026/05/02 15:15:53 by yyamamor         ###   ########.fr       */
+/*   Updated: 2026/05/06 13:19:39 by yyamamor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_isascii(int c)
+int	ft_isascii(int c)
 {
-    if (c >= 0 && c <= 127)
-        return (1);
-    return (0);
+	if (c >= 0 && c <= 127)
+		return (1);
+	return (0);
 }

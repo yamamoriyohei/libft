@@ -6,11 +6,11 @@
 /*   By: yyamamor <yyamamor@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/23 13:31:34 by yyamamor          #+#    #+#             */
-/*   Updated: 2026/04/23 15:03:36 by yyamamor         ###   ########.fr       */
+/*   Updated: 2026/05/06 13:04:38 by yyamamor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft.h>
+#include "libft.h"
 
 size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 {

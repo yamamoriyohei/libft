@@ -6,7 +6,7 @@
 /*   By: yyamamor <yyamamor@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/05 11:04:16 by yyamamor          #+#    #+#             */
-/*   Updated: 2026/05/05 11:11:48 by yyamamor         ###   ########.fr       */
+/*   Updated: 2026/05/06 13:19:40 by yyamamor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	if (s == NULL || f == NULL)
 		return (NULL);
 	i = 0;
-	new_str = malloc(sizeof(char)*ft_strlen(s) + 1);
-	if(new_str == NULL)
+	new_str = malloc(sizeof(char) * (ft_strlen(s) + 1));
+	if (new_str == NULL)
 		return (NULL);
 	while (s[i] != '\0')
 	{

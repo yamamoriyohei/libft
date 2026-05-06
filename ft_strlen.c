@@ -6,13 +6,15 @@
 /*   By: yyamamor <yyamamor@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/23 12:54:57 by yyamamor          #+#    #+#             */
-/*   Updated: 2026/04/23 13:08:23 by yyamamor         ###   ########.fr       */
+/*   Updated: 2026/05/06 13:08:17 by yyamamor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strlen(char *str)
+#include <stddef.h>
+
+size_t	ft_strlen(const char *str)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
 	while (str[i] != '\0')

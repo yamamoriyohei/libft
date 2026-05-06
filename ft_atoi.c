@@ -6,31 +6,50 @@
 /*   By: yyamamor <yyamamor@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/23 13:23:01 by yyamamor          #+#    #+#             */
-/*   Updated: 2026/04/23 13:29:09 by yyamamor         ###   ########.fr       */
+/*   Updated: 2026/05/06 19:19:12 by yyamamor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <limits.h>
+
+static int	is_overflow(unsigned long n, char c, int sign)
+{
+	int	limit;
+
+	limit = LONG_MAX % 10;
+	if (sign == -1)
+		limit++;
+	if (n > (unsigned long)(LONG_MAX / 10) || (n == (unsigned long)(LONG_MAX
+				/ 10) && (c - '0') > limit))
+		return (1);
+	return (0);
+}
+
 int	ft_atoi(const char *str)
 {
-	int		i;
-	int		sign;
-	long	n;
+	int				sign;
+	unsigned long	n;
 
-	i = 0;
 	sign = 1;
 	n = 0;
-	while (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))
-		i++;
-	if (str[i] == '-' || str[i] == '+')
+	while (*str == ' ' || (*str >= 9 && *str <= 13))
+		str++;
+	if (*str == '-' || *str == '+')
 	{
-		if (str[i] == '-')
+		if (*str == '-')
 			sign *= -1;
-		i++;
+		str++;
 	}
-	while (str[i] >= '0' && str[i] <= '9')
+	while (*str >= '0' && *str <= '9')
 	{
-		n = n * 10 + (str[i] - '0');
-		i++;
+		if (is_overflow(n, *str, sign))
+		{
+			if (sign == 1)
+				return (-1);
+			return (0);
+		}
+		n = n * 10 + (*str - '0');
+		str++;
 	}
 	return ((int)(n * sign));
 }

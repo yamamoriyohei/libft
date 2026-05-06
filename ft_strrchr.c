@@ -6,7 +6,7 @@
 /*   By: yyamamor <yyamamor@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/04 16:45:52 by yyamamor          #+#    #+#             */
-/*   Updated: 2026/05/04 16:57:01 by yyamamor         ###   ########.fr       */
+/*   Updated: 2026/05/06 13:24:47 by yyamamor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ char	*ft_strrchr(const char *s, int c)
 	len = 0;
 	while (s[len] != '\0')
 		len++;
-    /* Note: Use (char) casting instead of (unsigned char) for strrchr */
 	while (len >= 0)
 	{
 		if (s[len] == (char)c)

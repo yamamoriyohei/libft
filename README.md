@@ -1,76 +1,70 @@
+*This project has been created as part of the 42 curriculum by yyamamor*
+
 ## Description
-Libft is the first project of the 42 curriculum. The goal is to create a custom C library (`libft.a`) that implements many of the standard C library functions, as well as some additional utility functions for string manipulation and memory handling. This library will be used in future projects throughout the curriculum where standard C library functions are forbidden.
+Libftは、42カリキュラムの最初のプロジェクトです。このプロジェクトの目的は、標準Cライブラリの多くの関数を再実装し、さらに文字列操作やメモリ操作に役立つ独自のユーティリティ関数を加えたCライブラリ（`libft.a`）を作成することにあります。作成したライブラリは、標準関数の使用が制限される今後の42プロジェクトにおいて、基礎ツールとして活用されます。
 
-## Functions Implemented
+## Instructions
 
-### Part 1 - Libc functions
-- `ft_isalpha` - checks for an alphabetic character
-- `ft_isdigit` - checks for a digit (0 through 9)
-- `ft_isalnum` - checks for an alphanumeric character
-- `ft_isascii` - checks whether a character fits into the ASCII character set
-- `ft_isprint` - checks for any printable character
-- `ft_strlen` - calculate the length of a string
-- `ft_memset` - fill memory with a constant byte
-
-- `ft_bzero` - zero a byte string
-- `ft_memcpy` - copy memory area
-- `ft_memmove` - copy memory area
-- `ft_strlcpy` - size-bounded string copying
-- `ft_strlcat` - size-bounded string concatenation
-- `ft_toupper` - convert char to uppercase
-- `ft_tolower` - convert char to lowercase
-- `ft_strchr` - locate character in string
-- `ft_strrchr` - locate character in string
-- `ft_strncmp` - compare two strings
-- `ft_memchr` - scan memory for a character
-- `ft_memcmp` - compare memory areas
-- `ft_strnstr` - locate a substring in a string
-- `ft_atoi` - convert a string to an integer
-- `ft_calloc` - allocate memory and set to zero
-- `ft_strdup` - save a copy of a string
-
-### Part 2 - Additional functions
-- `ft_substr` - extract substring from string
-- `ft_strjoin` - concatenate two strings
-- `ft_strtrim` - trim beginning and end of string with the specified characters
-- `ft_split` - split string, with specified character as delimiter, into an array of strings
-- `ft_itoa` - convert integer to string
-- `ft_strmapi` - create new string from modifying string with specified function
-- `ft_striteri` - applies a function to each character of a string
-- `ft_putchar_fd` - output a character to given file descriptor
-- `ft_putstr_fd` - output string to given file descriptor
-- `ft_putendl_fd` - output string to given file descriptor with newline
-- `ft_putnbr_fd` - output integer to given file descriptor
-
-## Usage
-
-### Compiling the library
-To compile the library, run the following command at the root of the repository:
-```shell
+### Compilation
+リポジトリのルートディレクトリで以下のコマンドを実行することで、ライブラリ `libft.a` が作成されます。
+```bash
 make
 ```
-This will create `libft.a`.
 
-### Cleaning up
-To remove the object files (`.o`), run:
-```shell
+### Cleanup
+オブジェクトファイル（`.o`）のみを削除する場合：
+```bash
 make clean
 ```
-To remove the object files and the library (`libft.a`), run:
-```shell
+オブジェクトファイルと生成されたライブラリ（`libft.a`）の両方を削除する場合：
+```bash
 make fclean
 ```
-To recompile the library from scratch, run:
-```shell
+一度すべてを削除してから再コンパイルを行う場合：
+```bash
 make re
 ```
 
-### Using the library in your project
-Include the header in your C files:
+### Usage
+自作プログラムでこのライブラリを使用するには、ヘッダーファイルをインクルードし、コンパイル時にライブラリをリンクします。
 ```c
 #include "libft.h"
 ```
-Compile your project with the library:
-```shell
-cc your_file.c -L. -lft
+コンパイル例：
+```bash
+cc　-Wall -Wextra -Werror --.c -L. -lft
 ```
+
+## Resources
+
+### References
+- Man pages - 標準関数の動作および仕様の確認に使用。
+- [en.subject.pdf] - プロジェクトの要件および規約の確認に使用。
+
+### AI Usage
+このプロジェクトの開発において、学習補助のために AI（Gemini）を使用しました。使用した具体的なタスクと箇所は以下の通りです：
+- **理解のため**: `iterate` や `mapped` といったプログラミング用語の概念、および `calloc` の引数などの理解。
+- **テストケースの作成**:　作成した関数の挙動を確認するために必要な関数の作成に使用した。
+- **README.md の作成**:　作成した関数の説明の記述に使用した。
+
+
+## Library Functions
+
+### Part 1: Libc functions
+以下の標準Cライブラリ関数を、`ft_` プレフィックスを付けて再実装しています：
+- `isalpha`, `isdigit`, `isalnum`, `isascii`, `isprint`
+- `strlen`, `memset`, `bzero`, `memcpy`, `memmove`
+- `strlcpy`, `strlcat`, `toupper`, `tolower`
+- `strchr`, `strrchr`, `strncmp`, `memchr`, `memcmp`, `strnstr`, `atoi`
+- `calloc`, `strdup`
+
+### Part 2: Additional functions
+標準ライブラリを補完するために実装した追加の関数群です：
+- `ft_substr`, `ft_strjoin`, `ft_strtrim`, `ft_split`
+- `ft_itoa`, `ft_strmapi`, `ft_striteri`
+- `ft_putchar_fd`, `ft_putstr_fd`, `ft_putendl_fd`, `ft_putnbr_fd`
+
+### Part 3: Bonus functions
+連結リスト（Linked List）を操作するための関数群です：
+- `ft_lstnew`, `ft_lstadd_front`, `ft_lstsize`, `ft_lstlast`, `ft_lstadd_back`
+- `ft_lstdelone`, `ft_lstclear`, `ft_lstiter`, `ft_lstmap`
