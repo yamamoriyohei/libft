@@ -1,43 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yyamamor <yyamamor@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/02 16:52:21 by yyamamor          #+#    #+#             */
-/*   Updated: 2026/05/02 16:57:46 by yyamamor         ###   ########.fr       */
+/*   Created: 2026/05/04 16:45:52 by yyamamor          #+#    #+#             */
+/*   Updated: 2026/05/04 16:57:01 by yyamamor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dst, const void *src, size_t len)
+char	*ft_strrchr(const char *s, int c)
 {
-	unsigned char	*ptr1;
-	unsigned char	*ptr2;
-	size_t			i;
+	int	len;
 
-	if (!dst && !src)
-		return (NULL);
-	ptr1 = (unsigned char *)dst;
-	ptr2 = (unsigned char *)src;
-	if (ptr1 > ptr2)
+	len = 0;
+	while (s[len] != '\0')
+		len++;
+    /* Note: Use (char) casting instead of (unsigned char) for strrchr */
+	while (len >= 0)
 	{
-		while (len > 0)
-		{
-			len--;
-			ptr1[len] = ptr2[len];
-		}
+		if (s[len] == (char)c)
+			return ((char *)&s[len]);
+		len--;
 	}
-	else
-	{
-		i = 0;
-		while (i < len)
-		{
-			ptr1[i] = ptr2[i];
-			i++;
-		}
-	}
-	return (dst);
+	return (NULL);
 }

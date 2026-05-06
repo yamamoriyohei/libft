@@ -1,43 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yyamamor <yyamamor@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/02 16:52:21 by yyamamor          #+#    #+#             */
-/*   Updated: 2026/05/02 16:57:46 by yyamamor         ###   ########.fr       */
+/*   Created: 2026/05/04 16:57:41 by yyamamor          #+#    #+#             */
+/*   Updated: 2026/05/05 12:18:58 by yyamamor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dst, const void *src, size_t len)
+char	*ft_strtrim(char const *s1, char const *set)
 {
-	unsigned char	*ptr1;
-	unsigned char	*ptr2;
-	size_t			i;
+	size_t	start;
+	size_t	end;
 
-	if (!dst && !src)
+	if (!s1 || !set)
 		return (NULL);
-	ptr1 = (unsigned char *)dst;
-	ptr2 = (unsigned char *)src;
-	if (ptr1 > ptr2)
-	{
-		while (len > 0)
-		{
-			len--;
-			ptr1[len] = ptr2[len];
-		}
-	}
-	else
-	{
-		i = 0;
-		while (i < len)
-		{
-			ptr1[i] = ptr2[i];
-			i++;
-		}
-	}
-	return (dst);
+	start = 0;
+	while (s1[start] && ft_strchr(set, s1[start]))
+		start++;
+	end = ft_strlen(s1);
+	while (end > start && ft_strchr(set, s1[end - 1]))
+		end--;
+	return (ft_substr(s1, start, end - start));
 }

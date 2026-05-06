@@ -1,43 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yyamamor <yyamamor@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/02 16:52:21 by yyamamor          #+#    #+#             */
-/*   Updated: 2026/05/02 16:57:46 by yyamamor         ###   ########.fr       */
+/*   Created: 2026/05/05 13:52:59 by yyamamor          #+#    #+#             */
+/*   Updated: 2026/05/05 13:57:28 by yyamamor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <unistd.h>
 
-void	*ft_memmove(void *dst, const void *src, size_t len)
+void	ft_putnbr_fd(int n, int fd)
 {
-	unsigned char	*ptr1;
-	unsigned char	*ptr2;
-	size_t			i;
+	char	c;
 
-	if (!dst && !src)
-		return (NULL);
-	ptr1 = (unsigned char *)dst;
-	ptr2 = (unsigned char *)src;
-	if (ptr1 > ptr2)
+	if (fd < 0)
+		return ;
+	if (n == INT_MIN)
 	{
-		while (len > 0)
-		{
-			len--;
-			ptr1[len] = ptr2[len];
-		}
+		write(fd, "-2147483648", 11);
+		return ;
 	}
-	else
+	if (n < 0)
 	{
-		i = 0;
-		while (i < len)
-		{
-			ptr1[i] = ptr2[i];
-			i++;
-		}
+		write(fd, "-", 1);
+		n = -n;
 	}
-	return (dst);
+	if (n > 9)
+		ft_putnbr_fd(n / 10, fd);
+	c = (n % 10) + '0';
+	write(fd, &c, 1);
 }

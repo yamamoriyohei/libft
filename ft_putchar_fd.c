@@ -1,43 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yyamamor <yyamamor@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/02 16:52:21 by yyamamor          #+#    #+#             */
-/*   Updated: 2026/05/02 16:57:46 by yyamamor         ###   ########.fr       */
+/*   Created: 2026/05/02 17:19:36 by yyamamor          #+#    #+#             */
+/*   Updated: 2026/05/05 15:34:52 by yyamamor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <unistd.h>
 
-void	*ft_memmove(void *dst, const void *src, size_t len)
+void	ft_putchar_fd(char c, int fd)
 {
-	unsigned char	*ptr1;
-	unsigned char	*ptr2;
-	size_t			i;
-
-	if (!dst && !src)
-		return (NULL);
-	ptr1 = (unsigned char *)dst;
-	ptr2 = (unsigned char *)src;
-	if (ptr1 > ptr2)
-	{
-		while (len > 0)
-		{
-			len--;
-			ptr1[len] = ptr2[len];
-		}
-	}
-	else
-	{
-		i = 0;
-		while (i < len)
-		{
-			ptr1[i] = ptr2[i];
-			i++;
-		}
-	}
-	return (dst);
-}
+	if (fd < 0)
+		return ;
+	write(fd, &c, 1);
+}  

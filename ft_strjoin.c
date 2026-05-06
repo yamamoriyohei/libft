@@ -1,43 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yyamamor <yyamamor@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/02 16:52:21 by yyamamor          #+#    #+#             */
-/*   Updated: 2026/05/02 16:57:46 by yyamamor         ###   ########.fr       */
+/*   Created: 2026/05/05 10:39:57 by yyamamor          #+#    #+#             */
+/*   Updated: 2026/05/05 10:47:16 by yyamamor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dst, const void *src, size_t len)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	unsigned char	*ptr1;
-	unsigned char	*ptr2;
-	size_t			i;
+	char	*new_str;
+	size_t	len;
 
-	if (!dst && !src)
+	if (!s1 || !s2)
 		return (NULL);
-	ptr1 = (unsigned char *)dst;
-	ptr2 = (unsigned char *)src;
-	if (ptr1 > ptr2)
-	{
-		while (len > 0)
-		{
-			len--;
-			ptr1[len] = ptr2[len];
-		}
-	}
-	else
-	{
-		i = 0;
-		while (i < len)
-		{
-			ptr1[i] = ptr2[i];
-			i++;
-		}
-	}
-	return (dst);
+	len = ft_strlen(s1) + ft_strlen(s2);
+	new_str = malloc(len + 1);
+	if (new_str == NULL)
+		return (NULL);
+	ft_strlcpy(new_str, s1, len + 1);
+	ft_strlcat(new_str, s2, len + 1);
+	return (new_str);
 }
